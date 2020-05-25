@@ -31,7 +31,15 @@ df.index.names=['Group','Number']
 print(df)
 #get a value of b 0.3905278427
 print(df.loc['G1'].loc[3]['B'])
+#get a value via cross section level
+print(df.xs(1,level='Number'))
 
-
+# Create a DataFrame with simple dictionary
+d = {'A':[1,2,np.nan],'B':[3,3,4],'C':[np.nan,1,np.nan]}
+df = pd.DataFrame(d)
+# Drop the item with atleast 1 whole number
+print(df.dropna(thresh=1))
+# Fill the NaN with mean of available column value
+print(df.fillna(value=df['A'].mean()))
 
 
